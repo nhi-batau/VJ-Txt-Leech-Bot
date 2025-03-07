@@ -114,7 +114,16 @@ async def upload(bot: Client, m: Message):
     else:
         MR = raw_text3
    
-    await editable.edit("Now send the Thumb url/nEg » https://graph.org/file/ce1723991756e48c35aa1.jpg \n Or if don't want thumbnail send = no")
+  await editable.edit("𝐄𝐧𝐭𝐞𝐫 𝐘𝐨𝐮𝐫 𝐏𝐖 𝐓𝐨𝐤𝐞𝐧 𝐅𝐨𝐫 𝐌𝐏𝐃 𝐔𝐑𝐋 𝐨𝐫 𝐬𝐞𝐧𝐝 'no' 𝐟𝐨𝐫 𝐮𝐬𝐞 𝐝𝐞𝐟𝐚𝐮𝐥𝐭")
+    input4: Message = await bot.listen(editable.chat.id)
+    raw_text4 = input4.text
+    await input4.delete(True)
+    if raw_text4 == 'no':
+        MR = token
+    else:
+        MR = raw_text4
+ 
+  await editable.edit("Now send the Thumb url/nEg » https://graph.org/file/ce1723991756e48c35aa1.jpg \n Or if don't want thumbnail send = no")
     input6 = message = await bot.listen(editable.chat.id)
     raw_text6 = input6.text
     await input6.delete(True)
@@ -147,9 +156,13 @@ async def upload(bot: Client, m: Message):
             elif 'videos.classplusapp' in url:
              url = requests.get(f'https://api.classplusapp.com/cams/uploader/video/jw-signed-url?url={url}', headers={'x-access-token': 'eyJhbGciOiJIUzM4NCIsInR5cCI6IkpXVCJ9.eyJpZCI6MzgzNjkyMTIsIm9yZ0lkIjoyNjA1LCJ0eXBlIjoxLCJtb2JpbGUiOiI5MTcwODI3NzQyODkiLCJuYW1lIjoiQWNlIiwiZW1haWwiOm51bGwsImlzRmlyc3RMb2dpbiI6dHJ1ZSwiZGVmYXVsdExhbmd1YWdlIjpudWxsLCJjb3VudHJ5Q29kZSI6IklOIiwiaXNJbnRlcm5hdGlvbmFsIjowLCJpYXQiOjE2NDMyODE4NzcsImV4cCI6MTY0Mzg4NjY3N30.hM33P2ai6ivdzxPPfm01LAd4JWv-vnrSxGXqvCirCSpUfhhofpeqyeHPxtstXwe0'}).json()['url']
 
+               
             elif '/master.mpd' in url:
              id =  url.split("/")[-2]
-             url =  "https://d26g5bnklkwsh4.cloudfront.net/" + id + "/master.m3u8"
+             url =  f"https://madxapi-d0cbf6ac738c.herokuapp.com/{id}/master.m3u8?token={raw_text4}"
+
+            name1 = links[i][0].replace("\t", "").replace(":", "").replace("/", "").replace("+", "").replace("#", "").replace("|", "").replace("@", "").replace("*", "").replace(".", "").replace("https", "").replace("http", "").strip()
+            name = f'{str(count).zfill(3)}) {name1[:60]}'
 
             name1 = links[i][0].replace("\t", "").replace(":", "").replace("/", "").replace("+", "").replace("#", "").replace("|", "").replace("@", "").replace("*", "").replace(".", "").replace("https", "").replace("http", "").strip()
             name = f'{str(count).zfill(3)}) {name1[:60]}'
@@ -166,8 +179,8 @@ async def upload(bot: Client, m: Message):
 
             try:  
                 
-                cc = f'**[📽️] Vid_ID:** {str(count).zfill(3)}.** {𝗻𝗮𝗺𝗲𝟭}{MR}.mkv\n**𝔹ᴀᴛᴄʜ** » **{raw_text0}**'
-                cc1 = f'**[📁] Pdf_ID:** {str(count).zfill(3)}. {𝗻𝗮𝗺𝗲𝟭}{MR}.pdf \n**𝔹ᴀᴛᴄʜ** » **{raw_text0}**'
+           cc = f'[📹] ᐯIᗪ_Iᗪ ⇛ {str(count).zfill(3)}.\n𝐕𝐢𝐝𝐞𝐨 𝐃𝐞𝐬𝐜𝐫𝐢𝐩𝐭𝐢𝐨𝐧 ⇛ {name1} {res} 𝕭𝖍𝖚𝖒𝖎𝖍𝖆𝖗.mkv\n\n📚 Batch Name⇛ {raw_text0}**\n\n📥 𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲: {MR}🗿\n\n'                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+                cc1 = f'[📁]  ᖴIᒪE_Iᗪ ⇛ {str(count).zfill(3)}.\n𝐅𝐢𝐥𝐞 𝐃𝐞𝐬𝐜𝐫𝐢𝐩𝐭𝐢𝐨𝐧 ⇛ {name1} 𝕭𝖍𝖚𝖒𝖎𝖍𝖆𝖗.pdf\n\n📚 Batch Name⇛{raw_text0}\n\n📥 𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲: {MR}🗿\n\n'
                 if "drive" in url:
                     try:
                         ka = await helper.download(url, name)
@@ -185,7 +198,7 @@ async def upload(bot: Client, m: Message):
                         cmd = f'yt-dlp -o "{name}.pdf" "{url}"'
                         download_cmd = f"{cmd} -R 25 --fragment-retries 25"
                         os.system(download_cmd)
-                        copy = await bot.send_document(chat_id=m.chat.id, document=f'{name}.pdf', caption=cc1)
+                        copy = await bot.send_document(chat_id=m.chat.id, document=f'{name}.pdf', caion=cc1)
                         count += 1
                         os.remove(f'{name}.pdf')
                     except FloodWait as e:
